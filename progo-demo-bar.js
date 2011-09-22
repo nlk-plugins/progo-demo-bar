@@ -4,6 +4,13 @@ jQuery(function($) {
 		var s = c.attr('href');
 		s = s.substr(0,s.lastIndexOf('/')) + '/style'+$(this).val() + '.css';
 		c.attr('href',s);
+		if( $('#pagetop .textslide').size() > 0 ) {
+			if ( $(this).val() == 'GreenBrown' ) {
+				$('#pagetop .textslide.Light').removeClass('Light').addClass('Dark');
+			} else {
+				$('#pagetop .textslide.Dark').removeClass('Dark').addClass('Light');
+			}
+		}
 	});
 	
 	$('#pdbc').click(function() {
