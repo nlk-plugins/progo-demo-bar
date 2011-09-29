@@ -4,7 +4,7 @@ body.admin-bar #pdb { top: 28px }
 #pdb .in { display: block; width: 980px; height: 63px; position: relative; margin: 0 auto }
 #pdb a.logo { float: left; display: inline; width: 125px; height: 60px; background: url(images/progo.png) no-repeat 0 0; text-indent: -999em; margin: 0 36px 0 8px }
 #pdb label { float: left; margin: 22px 0 0; font-weight: bold }
-#pdb select { margin: 21px 15px 0 8px }
+#pdb select { float: left; margin: 21px 15px 0 8px }
 #pdb a.buy { float: right; width: 152px; height: 30px; margin: 15px 0 0; text-indent: -999em; background: url(images/buytheme.jpg) no-repeat 0 0 }
 
 

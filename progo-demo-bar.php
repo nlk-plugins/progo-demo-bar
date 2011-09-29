@@ -53,6 +53,15 @@ function progo_demo_bar_footer() {
 			echo '<option'. ( $colorscheme == $c ? ' selected="selected"' : '' ) .'>'. $c .'</option>';
 		}
 		echo '</select>';
+		
+		if ( $ct == 'Small Business Pro' ) {
+			echo '<label for="pdb-layout">Layout:</label><select id="pdb-layout" name="pdb-layout">';
+			for ( $i = 1; $i < 5; $i++ ) {
+				echo '<option value="'. $i .'">Layout '. $i .'</option>';
+			}
+			echo '</select>';
+		}
+		
 		$ptl = 'http://www.progo.com/products-page/themes/';
 		switch ( $ct ) {
 			case 'Direct Response':
