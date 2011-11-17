@@ -63,12 +63,12 @@ jQuery(function($) {
 			$('#pagetop .slide:not(.on)').css('left','960px');
 			if ( v == "1" || v == "2" ) {
 				$('#pagetop').attr('class', 'slides grid_8 Layout'+ v +' sliding');
-				$('.hform').insertBefore('#main');
+				$('.pbpform').insertBefore('#main');
 				$('#pagetop').append('<div class="shadow" />');
 				progo_sw = '646px';
 			} else {
 				$('#pagetop').attr('class', 'slides grid_12 Layout'+ v +' sliding');
-				$('.hform').prependTo('.secondary');
+				$('.pbpform').prependTo('.secondary');
 				$('#pagetop .slide').append('<div class="shadow" />');
 				progo_sw = '952px';
 			}

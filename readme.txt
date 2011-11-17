@@ -2,7 +2,7 @@
 Contributors: chousmith
 Requires at least: 3.1
 Tested up to: 3.2.1
-Stable tag: 0.1
+Stable tag: 0.2
 
 Adds bar that sticks to top of front end of site, allowing visitors to preview different Color Schemes and other Layout options.
 
@@ -19,6 +19,9 @@ Currently supports listing: Pages, Menus, and (Post) Categories
 1. Go to your homepage, or any other front-end page, to see the ProGo Demo Bar
 
 == Changelog ==
+
+= 0.2 =
+* Fixed bugs vs latest version of Small Business Pro theme
 
 = 0.1 =
 * Initial release of the plugin
