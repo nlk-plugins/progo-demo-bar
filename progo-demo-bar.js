@@ -1,17 +1,20 @@
 function pdbReBG(v) {
 	jQuery('#pagetop .slide').each(function() {
-		var bgi = 'url("'+ jQuery(this).data('pdbg');
-		switch(v) {
-			case "1":
-			case "2":
-				jQuery(this).css('background-image', bgi + '.jpg")');
-				break;
-			case "3":
-				jQuery(this).css('background-image', bgi + '-305x322.jpg")');
-				break;
-			case "4":
-				jQuery(this).css('background-image', bgi + '-646x322.jpg")');
-				break;
+		var bgi = jQuery(this).data('pdbg');
+		if ( v == "3" ) {
+			jQuery(this).css('background-image', '');
+			var im = jQuery('<img />');
+			im.attr('src', bgi + '-480x270.jpg');
+			im.appendTo(jQuery(this));
+		} else {
+			bgi = 'url("'+ bgi;
+			jQuery(this).css('background-image', bgi + '.jpg")').children('img').remove();
+		}
+		
+		if ( v=="1" || v=="2" ) {
+			jQuery(this).find('.content').hide();
+		} else {
+			jQuery(this).find('.content').show();
 		}
 	});
 }
@@ -28,6 +31,18 @@ jQuery(function($) {
 			} else {
 				$('#pagetop .textslide.Dark').removeClass('Dark').addClass('Light');
 			}
+		}
+		if ( $('#bg').size() > 0 ) {
+			$('#bg').css('background-image', 'url(http://demo.progo.com/businesspro/wp-content/themes/businesspro/images/colors/'+ $(this).val() + '/bg.jpg)');
+			var bgrep = 'repeat';
+			var bgc = '#FFF';
+			if ( ( $(this).val() == 'BrownBlue' ) || ( $(this).val() == 'GreenWhite' ) ) {
+				bgrep += '-x';
+				if ( $(this).val() == 'BrownBlue' ) {
+					bgc = '#CDDEE5';
+				}
+			}
+			$('#bg').css({'background-repeat': bgrep, 'background-color': bgc});
 		}
 	});
 	
@@ -46,10 +61,12 @@ jQuery(function($) {
 	
 	if ( $('#pdb-layout').size() > 0 ) {
 		var pdbpl = '<div style="display:none">';
-		var pdbsz = ['','-305x322','-646x322'];
+		var pdbsz = ['','-480x270'];
 		$('#pagetop .slide').each(function() {
 			var bgi = $(this).css('background-image');
-			bgi = bgi.substr(5, bgi.length - 11);
+			var hta = bgi.indexOf('http:');
+			var da = bgi.indexOf('.jpg');
+			bgi = bgi.substr(hta, da-hta );
 			$(this).data('pdbg',bgi);
 			for (z in pdbsz) {
 				pdbpl += '<img src="'+ bgi + pdbsz[z] +'.jpg" />';
@@ -59,20 +76,14 @@ jQuery(function($) {
 		$('body').append(pdbpl);
 		$('#pdb-layout').change(function() {
 			var v = $(this).val();
-			$('#pagetop .shadow').remove();
-			$('#pagetop .slide:not(.on)').css('left','960px');
+			$('#pagetop .slide:not(.on)').css('left','1000px');
+			$('#pagetop').attr('class', 'slides grid_12 Layout'+ v +' sliding');
 			if ( v == "1" || v == "2" ) {
-				$('#pagetop').attr('class', 'slides grid_8 Layout'+ v +' sliding');
-				$('.pbpform').insertBefore('#main');
-				$('#pagetop').append('<div class="shadow" />');
-				progo_sw = '646px';
+				$('.pbpform').appendTo('#homeslides');
 			} else {
-				$('#pagetop').attr('class', 'slides grid_12 Layout'+ v +' sliding');
 				$('.pbpform').prependTo('.secondary');
-				$('#pagetop .slide').append('<div class="shadow" />');
-				progo_sw = '952px';
 			}
 			pdbReBG(v);
-		});
+		}).val("2").trigger('change');
 	}
 });

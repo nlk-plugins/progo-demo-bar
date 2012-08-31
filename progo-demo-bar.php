@@ -4,7 +4,7 @@ Plugin Name: ProGo Demo Bar
 Plugin URI: http://www.progo.com/
 Description: Adds bar that sticks to top of front end of site, allowing visitors to preview different Color Schemes and other Layout options.
 Author: Alex Chousmith
-Version: 0.2
+Version: 0.3
 Author URI: http://www.progo.com/
 */
 
