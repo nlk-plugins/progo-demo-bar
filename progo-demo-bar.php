@@ -71,7 +71,7 @@ function progo_demo_bar_footer() {
 				$ptl .= 'ecommerce';
 				break;
 			case 'Small Business Pro':
-				$ptl .= 'small-business-pro';
+				$ptl = 'http://www.progo.com/';
 				break;
 		}
 		
