@@ -1,7 +1,7 @@
 function pdbReBG(v) {
 	jQuery('#pagetop .slide').each(function() {
 		var bgi = jQuery(this).data('pdbg');
-		if ( v == "3" ) {
+		if ( v == "2" ) {
 			jQuery(this).css('background-image', '');
 			var im = jQuery('<img />');
 			im.attr('src', bgi + '-480x270.jpg');
@@ -11,7 +11,7 @@ function pdbReBG(v) {
 			jQuery(this).css('background-image', bgi + '.jpg")').children('img').remove();
 		}
 		
-		if ( v=="1" || v=="2" ) {
+		if ( v=="3" || v=="4" ) {
 			jQuery(this).find('.content').hide();
 		} else {
 			jQuery(this).find('.content').show();
@@ -78,12 +78,12 @@ jQuery(function($) {
 			var v = $(this).val();
 			$('#pagetop .slide:not(.on)').css('left','1000px');
 			$('#pagetop').attr('class', 'slides grid_12 Layout'+ v +' sliding');
-			if ( v == "1" || v == "2" ) {
+			if ( v == "3" || v == "4" ) {
 				$('.pbpform').appendTo('#homeslides');
 			} else {
 				$('.pbpform').prependTo('.secondary');
 			}
 			pdbReBG(v);
-		}).val("2").trigger('change');
+		}).val("1").trigger('change');
 	}
 });
