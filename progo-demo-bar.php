@@ -4,7 +4,7 @@ Plugin Name: ProGo Demo Bar
 Plugin URI: http://www.progo.com/
 Description: Adds bar that sticks to top of front end of site, allowing visitors to preview different Color Schemes and other Layout options.
 Author: Alex Chousmith
-Version: 0.4
+Version: 0.5
 Author URI: http://www.progo.com/
 */
 
@@ -55,11 +55,13 @@ function progo_demo_bar_footer() {
 		echo '</select>';
 		
 		if ( $ct == 'Small Business Pro' ) {
-			echo '<label for="pdb-layout">Layout:</label><select id="pdb-layout" name="pdb-layout">';
-			for ( $i = 1; $i < 4; $i++ ) {
-				echo '<option value="'. $i .'">Layout '. $i .'</option>';
+			if ( is_front_page() ) {
+				echo '<label for="pdb-layout">Layout:</label><select id="pdb-layout" name="pdb-layout">';
+				for ( $i = 1; $i < 4; $i++ ) {
+					echo '<option value="'. $i .'">Layout '. $i .'</option>';
+				}
+				echo '</select>';
 			}
-			echo '</select>';
 		}
 		
 		$ptl = 'http://www.progo.com/products-page/themes/';
